@@ -38,14 +38,15 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
     <title><?php echo htmlspecialchars($domain); ?> te koop | PEPSMEDIA</title>
     <style>
         :root {
-            --bg-1: #fff8f1;
-            --bg-2: #fff3e3;
+            --bg-1: #f5f8ff;
+            --bg-2: #fff8f0;
             --ink: #12182b;
             --muted: #5d6478;
-            --brand: #f7911a;
-            --brand-dark: #d97706;
+            --brand: #eb8d2a;
+            --brand-dark: #cc6f10;
             --card: rgba(255, 255, 255, 0.86);
             --stroke: rgba(18, 24, 43, 0.08);
+            --accent-blue: #4b7cff;
         }
 
         * {
@@ -68,23 +69,13 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
             flex-direction: column;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: -20%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 30%, rgba(247, 145, 26, 0.18), transparent 55%),
-                        radial-gradient(circle at 80% 75%, rgba(255, 201, 132, 0.2), transparent 52%);
-            animation: glow-shift 12s ease-in-out infinite alternate;
-        }
-
         .bg-orb {
             position: fixed;
             border-radius: 999px;
-            filter: blur(6px);
-            opacity: 0.6;
+            filter: blur(10px);
+            opacity: 0.42;
             z-index: -1;
-            animation: drift 9s ease-in-out infinite alternate;
+            animation: drift 18s ease-in-out infinite;
         }
 
         .orb-1 {
@@ -98,7 +89,7 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
         .orb-2 {
             width: 420px;
             height: 420px;
-            background: #ffd9a8;
+            background: #cfdcff;
             bottom: -120px;
             left: -120px;
             animation-delay: -6s;
@@ -118,16 +109,7 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
                 transform: translate(0, 0) scale(1);
             }
             50% {
-                transform: translate(55px, -45px) scale(1.18);
-            }
-        }
-
-        @keyframes glow-shift {
-            0% {
-                transform: translate(-2%, 0%) scale(1);
-            }
-            100% {
-                transform: translate(2%, -3%) scale(1.06);
+                transform: translate(20px, -22px) scale(1.07);
             }
         }
 
@@ -232,14 +214,14 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
         }
 
         .btn-secondary {
-            color: #b56200;
-            border: 1px solid rgba(247, 145, 26, 0.45);
+            color: var(--accent-blue);
+            border: 1px solid rgba(75, 124, 255, 0.35);
             background: rgba(255, 255, 255, 0.85);
         }
 
         .btn-secondary:hover,
         .btn-secondary:focus-visible {
-            background: rgba(255, 239, 220, 0.95);
+            background: rgba(237, 242, 255, 0.95);
             transform: translateY(-2px);
         }
 
@@ -253,14 +235,14 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
         }
 
         footer a {
-            color: #7a4204;
+            color: #2e3f72;
             text-decoration: none;
             font-weight: 600;
         }
 
         footer a:hover,
         footer a:focus-visible {
-            color: #542d04;
+            color: #19264a;
             text-decoration: underline;
         }
 
@@ -288,7 +270,6 @@ $content = $domainContent[$domain] ?? $domainContent['default'];
         }
 
         @media (prefers-reduced-motion: reduce) {
-            body::before,
             .bg-orb,
             .btn {
                 animation: none !important;
